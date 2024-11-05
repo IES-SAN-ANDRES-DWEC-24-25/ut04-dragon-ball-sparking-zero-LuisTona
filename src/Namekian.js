@@ -10,7 +10,7 @@ class Namekian {
    * Regenera salud si aún no lo ha hecho en la batalla.
    */
   regenerarSalud() {
-   
+    
   }
 }
 

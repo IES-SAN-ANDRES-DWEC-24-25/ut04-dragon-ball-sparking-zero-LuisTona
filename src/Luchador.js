@@ -1,8 +1,40 @@
 // src/Luchador.js
 
 class Luchador {
+  #nombre
+  #ataque
+  #velocidad
+  #defensa
+  #salud
+
     // Implementa el constructor y los métodos necesarios
-  
+    constructor(nombre, ataque, velocidad, defensa, salud = 100){
+      this.#nombre = nombre;
+      this.#ataque = ataque;
+      this.#velocidad = velocidad;
+      this.#defensa = defensa;
+      this.#salud = salud
+    }
+
+    set nombre(nombre){
+      this.#nombre = nombre;
+    }
+
+    get stats(){
+      let stats = {
+        'nombre' : this.#nombre,
+        'ataque' : this.#ataque,
+        'velocidad' : this.#velocidad,
+        'defensa' : this.#defensa,
+        'salud' : this.#salud
+    };
+      return stats;
+    }
+
+    // set ataque(ataque){
+    //  ataque > 100 
+    //  ataque = 100
+    // }
   
     /**
      * Realiza un ataque contra un oponente.
@@ -11,7 +43,7 @@ class Luchador {
      */
     atacar(oponente) {
       // Decidir si el ataque es esquivado
-     
+      
   
       // Calcular daño
       
@@ -39,7 +71,11 @@ class Luchador {
      * @returns {boolean} - `true` si la salud es mayor a 0, `false` en caso contrario.
      */
     estaVivo() {
-     
+      if(salud > 0 ){
+        return true;
+      }else{
+        return false;
+      }
     }
   }
   
