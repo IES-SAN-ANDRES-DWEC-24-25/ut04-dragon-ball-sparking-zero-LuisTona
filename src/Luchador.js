@@ -16,10 +16,7 @@ class Luchador {
       this.#salud = salud
     }
 
-    set nombre(nombre){
-      this.#nombre = nombre;
-    }
-
+    
     get stats(){
       let stats = {
         'nombre' : this.#nombre,
@@ -27,15 +24,23 @@ class Luchador {
         'velocidad' : this.#velocidad,
         'defensa' : this.#defensa,
         'salud' : this.#salud
-    };
+      };
       return stats;
     }
+    
+    set salud(salud){
+      this.#salud = salud;
+    }
 
-    // set ataque(ataque){
-    //  ataque > 100 
-    //  ataque = 100
-    // }
-  
+    set ataque(ataque){
+      this.#ataque = ataque;
+    }
+    
+    set defensa(defensa){
+      this.#defensa = defensa;
+    }
+
+    set velocidad
     /**
      * Realiza un ataque contra un oponente.
      * @param {Luchador} oponente - El luchador que recibe el ataque.

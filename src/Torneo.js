@@ -9,7 +9,11 @@ class Torneo {
    * @param {Luchador[]} luchadores - Array de luchadores participantes.
    */
   constructor(luchadores) {
-    this.luchadores = luchadores;
+    if(!esPotenciaDeDos(luchadores.length)){
+      throw new Error("El número de luchadores debe ser una potencia de 2.");
+    }else{
+      this.luchadores = luchadores;
+    }
   }
 
   /**
@@ -18,11 +22,8 @@ class Torneo {
    */
   iniciar() {
     
-    let participantes = this.luchadores; // Copiar el array de luchadores
+    let participantes = [...this.luchadores]; // Copiar el array de luchadores
     mezclarArray(participantes);
-    if(esPotenciaDeDos(participantes.length) !== 0){
-      throw ("El número de luchadores debe ser una potencia de 2.");
-    }
 
     console.log(`\nIniciando el torneo con ${participantes.length} luchadores!\n`);
 
