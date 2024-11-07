@@ -28,7 +28,7 @@ class Torneo {
     console.log(`\nIniciando el torneo con ${participantes.length} luchadores!\n`);
 
     // Simular rondas hasta que quede un solo luchador
-    for(let i = 0; i < participantes.length; i + 2){
+    for(let i = 0; i <= participantes.length-1; i += 2){
       simularBatalla(participantes[i], participantes[i+1])
     }
 

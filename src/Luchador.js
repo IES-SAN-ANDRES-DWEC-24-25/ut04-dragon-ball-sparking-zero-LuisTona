@@ -40,7 +40,9 @@ class Luchador {
       this.#defensa = defensa;
     }
 
-    set velocidad
+    set velocidad(velocidad){
+      this.#velocidad = velocidad;
+    }
     /**
      * Realiza un ataque contra un oponente.
      * @param {Luchador} oponente - El luchador que recibe el ataque.
@@ -68,15 +70,14 @@ class Luchador {
      * @param {number} danio - Cantidad de daño recibido.
      */
     recibirDanio(danio) {
-      
     }
-  
+    
     /**
      * Verifica si el luchador está vivo.
      * @returns {boolean} - `true` si la salud es mayor a 0, `false` en caso contrario.
-     */
-    estaVivo() {
-      if(salud > 0 ){
+    */
+   estaVivo(luchador) {
+      if(luchador.stats.salud > 0){
         return true;
       }else{
         return false;
