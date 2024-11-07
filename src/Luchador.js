@@ -50,8 +50,8 @@ class Luchador {
      */
     atacar(oponente) {
       // Decidir si el ataque es esquivado
-      
-  
+      console.log(oponente.stats);
+      console.log(this.#nombre);
       // Calcular daño
       
   
