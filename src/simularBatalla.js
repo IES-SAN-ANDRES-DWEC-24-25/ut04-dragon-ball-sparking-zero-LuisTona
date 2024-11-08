@@ -8,7 +8,8 @@ const Luchador = require("./Luchador");
  */
 function simularBatalla(luchador1, luchador2) {
     console.log(`\nComienza la batalla entre ${luchador1.stats.nombre} y ${luchador2.stats.nombre}!`);
-    
+    let vida1 = luchador1.stats.salud;
+    let vida2 = luchador2.stats.salud;
     const ganador = velocidad();
     
     
@@ -47,18 +48,17 @@ function simularBatalla(luchador1, luchador2) {
         luchador1.atacar(luchador2);
         
         if(luchador2.stats.salud <= 0){
+          luchador1.salud = vida1;
           return luchador1;
         }
         luchador2.atacar(luchador1);
 
         if(luchador1.stats.salud <= 0){
+          luchador2.salud = vida2;
           return luchador2;
         }
       }
-        
-
-
-      }
+    }
       
     // Simular turnos hasta que uno de los luchadores pierda
     

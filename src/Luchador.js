@@ -28,8 +28,8 @@ class Luchador {
       return stats;
     }
     
-    set salud(salud){
-      this.#salud = salud;
+    set salud(nuevaSalud){
+      this.#salud = nuevaSalud;
     }
 
     set ataque(ataque){
@@ -60,7 +60,7 @@ class Luchador {
       // Calcular daño
       function calcDaño(ataque){
         // Asegurar que el daño no sea negativo
-        if(ataque - oponente.stats.defensa < 0){
+        if(ataque - oponente.stats.defensa <= 0){
           // Aplicar daño al oponente
           oponente.recibirDanio(oponente.stats.salud - (ataque*0.10));
           console.log(`A ${oponente.stats.nombre} le quedan ${oponente.stats.salud} de vida`);
@@ -79,8 +79,11 @@ class Luchador {
      */
     recibirDanio(danio) {
       this.salud = danio;
+      if(this.stats.salud < 0){
+        this.salud = 0
+      }
     }
-    
+
     /**
      * Verifica si el luchador está vivo.
      * @returns {boolean} - `true` si la salud es mayor a 0, `false` en caso contrario.
