@@ -26,14 +26,19 @@ class Torneo {
     mezclarArray(participantes);
 
     console.log(`\nIniciando el torneo con ${participantes.length} luchadores!\n`);
-
+    let ronda = 0;
     // Simular rondas hasta que quede un solo luchador
-    for(let i = 0; i <= participantes.length-1; i += 2){
-      simularBatalla(participantes[i], participantes[i+1])
+    while(participantes.length > 1){
+      ronda += 1;
+      console.log('ronda: ' + ronda);
+      for(let i = 0; i <= participantes.length-1; i += 1){
+        participantes.push(simularBatalla(participantes[i-i], participantes[i-i+1]));
+        participantes.splice(0,2);
+      }
     }
 
     const campeón = participantes[0];
-    console.log(`El campeón del torneo es ${campeón.nombre}!\n`);
+    console.log(`El campeón del torneo es ${campeón.stats.nombre}!\n`);
     return campeón;
   }
 }

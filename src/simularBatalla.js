@@ -40,34 +40,29 @@ function simularBatalla(luchador1, luchador2) {
     // Si la velocidad es igual, elegir al azar
     
     function luchar(luchador1, luchador2){
-      let luchador;
-      let ronda = 0;
-      do{ 
+      // let turno = 0;
+      while(luchador1.estaVivo(luchador1) !== false && luchador2.estaVivo(luchador2) !== false){ 
+      
         
-        ronda += 1;
+        luchador1.atacar(luchador2);
         
-        if(ronda % 2 > 0){
-          luchador = luchador1
-          luchador.atacar(luchador2);
-        }else{
-          luchador = luchador2
-          luchador.atacar(luchador1);
-        }
-        
-      }while(luchador1.salud >= 0 || luchador2.salud >= 0)
-        
-
-        if(luchador1.salud <= 0){
-          return luchador2;
-        }else{
+        if(luchador2.stats.salud <= 0){
           return luchador1;
         }
+        luchador2.atacar(luchador1);
 
-    }
-    
-    // Simular turnos hasta que uno de los luchadores pierda
+        if(luchador1.stats.salud <= 0){
+          return luchador2;
+        }
+      }
+        
+
+
+      }
       
-    // console.log(`El ganador de la batalla es ${ganador.stats.nombre}!\n`);
+    // Simular turnos hasta que uno de los luchadores pierda
+    
+    console.log(`El ganador de la batalla es ${ganador.stats.nombre}!\n`);
     return ganador;
   }
   
